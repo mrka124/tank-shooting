@@ -18,3 +18,4 @@ health = 100
 [node name="Muzzle" type="Position2D" parent="Turret"]
 
 [node name="GunTimer" type="Timer" parent="."]
+[connection signal="timeout" from="GunTimer" to="." method="_on_GunTimer_timeout"]

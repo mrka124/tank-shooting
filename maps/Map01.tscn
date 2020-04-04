@@ -1,19 +1,19 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://terrain/terrain_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://tanks/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://maps/Map.gd" type="Script" id=3]
+[ext_resource path="res://tanks/EnemyTank.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 1212.61, 614.598, 0, 0, 0, 0, 1214.01, 1592.19, 0, 0, 0, 0, 1847.98, 1606.21, 0, 0, 0, 0, 2140.83, 1089.79, 0, 0, 0, 0, 1858.92, 618.525, 0, 0, 0, 0, 1212.61, 614.598 )
+"points": PoolVector2Array( 0, 0, 0, 0, 1212.61, 614.598, 0, 0, 0, 0, 1214.01, 1592.19, 0, 0, 0, 0, 1847.98, 1606.21, 0, 0, 0, 0, 2200.46, 1087.47, 0, 0, 0, 0, 1858.92, 618.525, 0, 0, 0, 0, 1212.61, 614.598 )
 }
 
 [node name="Map01" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="Ground" type="TileMap" parent="."]
-modulate = Color( 0.615686, 0.576471, 0.576471, 1 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 128, 128 )
 format = 1
@@ -25,10 +25,14 @@ tile_data = PoolIntArray( -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -6
 
 [node name="Path2D" type="Path2D" parent="Paths"]
 curve = SubResource( 1 )
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D"]
-position = Vector2( 1212.61, 614.598 )
-rotation = 1.56943
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D"]
+position = Vector2( 1212.61, 614.598 )
+rotation = 1.5693
+
+[node name="EnemyTank" parent="Paths/Path2D/PathFollow2D" instance=ExtResource( 4 )]
+turret_speed = 1.2
+[connection signal="shoot" from="Player" to="." method="_on_Tank_shoot"]
