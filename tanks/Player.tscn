@@ -18,7 +18,6 @@ region_enabled = true
 region_rect = Rect2( 307.561, 262.082, 81.4503, 83.9123 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-visible = false
 shape = SubResource( 1 )
 
 [node name="Turret" parent="." index="2"]

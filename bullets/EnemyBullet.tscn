@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/onlyObjects_retina.png" type="Texture" id=1]
+[ext_resource path="res://bullets/Bullet.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 14.8723, 11.9777 )
+
+[node name="EnemyBullet" instance=ExtResource( 2 )]
+speed = 750
+damage = 10
+lifetime = 0.5
+
+[node name="Sprite" parent="." index="0"]
+rotation = 3.14159
+texture = ExtResource( 1 )
+region_rect = Rect2( 388, 322, 32, 24 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource( 1 )

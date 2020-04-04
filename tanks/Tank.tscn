@@ -4,7 +4,7 @@
 
 [node name="Tank" type="KinematicBody2D"]
 script = ExtResource( 1 )
-speed = 200
+max_speed = 200
 rotation_speed = 1.0
 gun_cooldown = 0.4
 health = 100
