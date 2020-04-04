@@ -16,9 +16,11 @@ lifetime = 0.5
 [node name="Sprite" parent="." index="0"]
 rotation = 3.14159
 texture = ExtResource( 2 )
-region_enabled = true
 region_rect = Rect2( 388, 298, 32, 24 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( -0.829979, 0 )
 shape = SubResource( 1 )
+
+[node name="Lifetime" parent="." index="2"]
+
+wait_time = 0.5
