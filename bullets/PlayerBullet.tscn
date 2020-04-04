@@ -22,5 +22,4 @@ region_rect = Rect2( 388, 298, 32, 24 )
 shape = SubResource( 1 )
 
 [node name="Lifetime" parent="." index="2"]
-
 wait_time = 0.5
